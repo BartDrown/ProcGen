@@ -7,7 +7,7 @@ public class NoiseGenerator : MonoBehaviour {
     GameObject colorMap;
 
     [SerializeField]
-    bool liveReload = true;
+    bool liveReload = false;
 
     [SerializeField]
     int width = 10, height = 10;
@@ -37,12 +37,14 @@ public class NoiseGenerator : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (liveReload) {
-            this.generateNoiseMap();
-
-            this.generateColorMap();
-
+            this.generateTerrain();
         }
 
+    }
+
+    public void generateTerrain(){
+        this.generateNoiseMap();
+        this.generateColorMap();
     }
 
     void generateNoiseMap() {
@@ -53,7 +55,10 @@ public class NoiseGenerator : MonoBehaviour {
         int tileDepth = (int)Mathf.Sqrt(meshVertices.Length);
         int tileWidth = (int)Mathf.Sqrt(meshVertices.Length);
 
-        float[,] noiseMap = RendererUtils.generateNoiseMap(tileDepth, tileWidth, scale);
+        float offsetX = this.noiseMap.transform.position.x;
+        float offsetZ = this.noiseMap.transform.position.y;
+
+        float[,] noiseMap = RendererUtils.generateNoiseMap(tileDepth, tileWidth, scale, offsetX, offsetZ);
 
         this.noiseMap.GetComponent<MeshRenderer>().material.mainTexture = RendererUtils.buildTextureNoise(noiseMap);
     }
@@ -66,7 +71,10 @@ public class NoiseGenerator : MonoBehaviour {
         int tileDepth = (int)Mathf.Sqrt(meshVertices.Length);
         int tileWidth = (int)Mathf.Sqrt(meshVertices.Length);
 
-        float[,] noiseMap = RendererUtils.generateNoiseMap(tileDepth, tileWidth, scale);
+        float offsetX = this.colorMap.transform.position.x;
+        float offsetZ = this.colorMap.transform.position.y;
+
+        float[,] noiseMap = RendererUtils.generateNoiseMap(tileDepth, tileWidth, scale, offsetX, offsetZ);
 
         this.colorMap.GetComponent<MeshRenderer>().material.mainTexture = RendererUtils.buildTextureColor(noiseMap, terrainTypes);
 

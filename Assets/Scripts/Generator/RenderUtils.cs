@@ -59,13 +59,13 @@ public class RendererUtils {
         return tileTexture;
     }
 
-    static public float[,] generateNoiseMap(int mapDepth, int mapWidth, float scale) {
+    static public float[,] generateNoiseMap(int mapDepth, int mapWidth, float scale, float offsetX, float offsetZ) {
         float[,] noiseMap = new float[mapDepth, mapWidth];
 
         for (int zIndex = 0; zIndex < mapDepth; zIndex++) {
             for (int xIndex = 0; xIndex < mapWidth; xIndex++) {
-                float sampleX = xIndex / scale;
-                float sampleZ = zIndex / scale;
+                float sampleX = (xIndex + offsetX) / scale;
+                float sampleZ = (zIndex + offsetZ)  / scale;
 
                 float noise = 1 * Mathf.PerlinNoise(sampleX * 1, sampleZ * 1)
                 + 0.5f * Mathf.PerlinNoise(sampleX * 2, sampleZ * 2)

@@ -235,11 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5c59b336b96eb40ae053288c5c861b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liveReload: 1
-  width: 10
-  height: 10
-  scale: 4
-  heightMultiplier: 1
+  liveReload: 0
+  width: 50
+  height: 50
+  scale: 10
+  heightMultiplier: -10
   heightCurve:
     serializedVersion: 2
     m_Curve:
@@ -253,8 +253,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.40116766
-      value: 0.00066226884
+      time: 0.3
+      value: 0
       inSlope: -0.009613974
       outSlope: -0.009613974
       tangentMode: 0
