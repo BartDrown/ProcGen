@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1698980856924796056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1698980856924796058}
+  - component: {fileID: 1698980856924796057}
+  m_Layer: 0
+  m_Name: Tile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1698980856924796058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698980856924796056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1698980856924796057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698980856924796056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5c59b336b96eb40ae053288c5c861b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liveReload: 0
+  width: 50
+  height: 50
+  scale: 10
+  heightMultiplier: -100
+  heightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.0023498535
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3
+      value: 0
+      inSlope: -0.009613974
+      outSlope: -0.009613974
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.20740683
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  waves:
+  - seed: 5613
+    frequency: 1
+    amplitude: 1
+  - seed: 9551
+    frequency: 0.5
+    amplitude: 2
+  - seed: 6712
+    frequency: 0.25
+    amplitude: 4
+  - seed: 412
+    frequency: 0.125
+    amplitude: 8
+  - seed: 551
+    frequency: 0.0625
+    amplitude: 16
+  terrainTypes:
+  - name: Deep Water
+    height: 0.37
+    color: {r: 0.05762726, g: 0.14505605, b: 0.3490566, a: 0}
+  - name: Water
+    height: 0.4
+    color: {r: 0.22027414, g: 0.784237, b: 0.8490566, a: 0}
+  - name: Sand
+    height: 0.45
+    color: {r: 0.745283, g: 0.69220144, b: 0.13007298, a: 0}
+  - name: Grass
+    height: 0.65
+    color: {r: 0.18551087, g: 0.5566038, b: 0.1496529, a: 0}
+  - name: Mountains
+    height: 0.8
+    color: {r: 0.33962262, g: 0.3387361, b: 0.33802062, a: 0}
+  - name: Snow
+    height: 1
+    color: {r: 0.7924528, g: 0.786247, b: 0.78123885, a: 0}

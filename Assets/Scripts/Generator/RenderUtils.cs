@@ -59,7 +59,7 @@ public class RendererUtils {
         return tileTexture;
     }
 
-    static public float[,] generateNoiseMap(int mapDepth, int mapWidth, float scale, float offsetX, float offsetZ) {
+    static public float[,] generateNoiseMap(int mapDepth, int mapWidth, float scale, float offsetX, float offsetZ, Wave[] waves) {
         float[,] noiseMap = new float[mapDepth, mapWidth];
 
         for (int zIndex = 0; zIndex < mapDepth; zIndex++) {
@@ -67,11 +67,23 @@ public class RendererUtils {
                 float sampleX = (xIndex + offsetX) / scale;
                 float sampleZ = (zIndex + offsetZ)  / scale;
 
-                float noise = 1 * Mathf.PerlinNoise(sampleX * 1, sampleZ * 1)
-                + 0.5f * Mathf.PerlinNoise(sampleX * 2, sampleZ * 2)
-                + 0.25f * Mathf.PerlinNoise(sampleX * 4, sampleZ * 4);
+                float noise = 0f;
+                float normalization = 0f;
 
-                noiseMap[zIndex, xIndex] = noise / (1 + 0.5f + 0.25f);
+                foreach (Wave wave in waves){
+                    noise += wave.amplitude * Mathf.PerlinNoise(sampleX * wave.frequency + wave.seed, sampleZ * wave.frequency + wave.seed);
+                    normalization += wave.amplitude;
+                }
+                noise /= normalization;
+                // Debug.Log(noise);
+                noiseMap [zIndex, xIndex] = noise;
+                
+                // ? Old noise function
+                // float noise = 1 * Mathf.PerlinNoise(sampleX * 1, sampleZ * 1)
+                // + 0.5f * Mathf.PerlinNoise(sampleX * 2, sampleZ * 2)
+                // + 0.25f * Mathf.PerlinNoise(sampleX * 4, sampleZ * 4);
+
+                // noiseMap[zIndex, xIndex] = noise / (1 + 0.5f + 0.25f);
             }
         }
         return noiseMap;
