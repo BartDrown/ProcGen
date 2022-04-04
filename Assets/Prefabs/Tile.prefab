@@ -47,7 +47,7 @@ MonoBehaviour:
   width: 50
   height: 50
   scale: 10
-  heightMultiplier: -100
+  heightMultiplier: -120
   heightCurve:
     serializedVersion: 2
     m_Curve:
@@ -97,22 +97,25 @@ MonoBehaviour:
   - seed: 551
     frequency: 0.0625
     amplitude: 16
+  - seed: 551
+    frequency: 0.03125
+    amplitude: 32
   terrainTypes:
   - name: Deep Water
     height: 0.37
-    color: {r: 0.05762726, g: 0.14505605, b: 0.3490566, a: 0}
+    color: {r: 0.37304202, g: 0.49727732, b: 0.7830189, a: 0}
   - name: Water
     height: 0.4
-    color: {r: 0.22027414, g: 0.784237, b: 0.8490566, a: 0}
+    color: {r: 0.32529372, g: 0.76161355, b: 0.8113208, a: 0}
   - name: Sand
-    height: 0.45
-    color: {r: 0.745283, g: 0.69220144, b: 0.13007298, a: 0}
+    height: 0.42
+    color: {r: 0.754717, g: 0.7200071, b: 0.33819866, a: 0}
   - name: Grass
     height: 0.65
-    color: {r: 0.18551087, g: 0.5566038, b: 0.1496529, a: 0}
+    color: {r: 0.36602318, g: 0.6698113, b: 0.35702205, a: 0}
   - name: Mountains
     height: 0.8
-    color: {r: 0.33962262, g: 0.3387361, b: 0.33802062, a: 0}
+    color: {r: 0.7264151, g: 0.640753, b: 0.640753, a: 0}
   - name: Snow
     height: 1
-    color: {r: 0.7924528, g: 0.786247, b: 0.78123885, a: 0}
+    color: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0}
